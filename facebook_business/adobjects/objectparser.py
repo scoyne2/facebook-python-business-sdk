@@ -56,7 +56,9 @@ class ObjectParser:
     def parse_single(self, response):
         if self._custom_parse_method is not None:
             return self._custom_parse_method(response, self._api)
-
+        import logging
+        logging.warning(response)
+        print(response)
         data = response
         if 'data' in response and isinstance(response['data'], dict):
             data = response['data']
